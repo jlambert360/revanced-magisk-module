@@ -1,6 +1,6 @@
 {
-  "version": "v19.16.39 (20220980)",
-  "versionCode": 20220980,
-  "zipUrl": "https://github.com/j-hc/revanced-magisk-module/releases/download/20220980/youtube-revanced-extended-magisk-v19.16.39-all.zip",
-  "changelog": "https://raw.githubusercontent.com/j-hc/revanced-magisk-module/update/build.md"
+  "version": "v19.47.53 (patches 5.8.1)",
+  "versionCode": 1,
+  "zipUrl": "https://github.com/jlambert360/revanced-magisk-module/releases/download/1/youtube-extended-revanced-extended-magisk-v19.47.53-all.zip",
+  "changelog": "https://raw.githubusercontent.com/jlambert360/revanced-magisk-module/update/build.md"
 }
