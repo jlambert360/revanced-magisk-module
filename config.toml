@@ -1,82 +1,79 @@
-enable-magisk-update = true # set this to false if you do not want to receive updates for the module in magisk app
-parallel-jobs = 1
+enable-magisk-update = true            # set this to false if you do not want to receive updates for the module in magisk app
+parallel-jobs = 1                      # amount of cores to use for parallel patching, if not set $(nproc) is used
+# compression-level = 9                # module zip compression level
+# remove-rv-integrations-checks = true # remove checks from the revanced integrations
 
 # add 'enabled = false' for not patching a specific app or remove it from the config
 # see https://github.com/j-hc/revanced-magisk-module/blob/main/CONFIG.md for more detailed explanations
 
 # you can use rvmm-config-gen to generate a config
 
-[YouTube]
+[YouTube-Extended]
+# whether to build the app. default: true
+enabled = true
+
+# if set, release name becomes SomeApp instead of Some-App. default is same as table name, which is 'Some-App' here.
+# app-name = "YouTube"
+
+# 'both', 'apk' or 'module'. default: apk
 build-mode = "both"
-excluded-patches = ""
-included-patches = ""
+
+# magisk module prop name.
+module-prop-name = "YouTube ReVanced Extended"
+
+# includes stock apk in the module. default: true
+# include-stock = true
+
+# where to fetch patches bundle from. default: "revanced/revanced-patches"
+patches-source = "inotia00/revanced-patches"
+
+# 'latest', 'dev', or a version number. default: "latest"
+# patches-version = "latest"
+
+# where to fetch cli from. default: "j-hc/revanced-cli"
+cli-source = "inotia00/revanced-cli"
+
+# 'latest', 'dev', or a version number. default: "latest"
+# cli-version = "latest"
+
+# rebrand from 'ReVanced' to something different. default: "ReVanced"
+rv-brand = "ReVanced Extended"
+
+# 'auto' option gets the latest possible version supported by all the included patches
+# 'latest' gets the latest stable without checking patches support. 'beta' gets the latest beta/alpha
+# 'auto', 'latest', 'beta' or a version number (e.g. '17.40.41'). default: auto
 version = "auto"
+
+# 'arm64-v8a', 'arm-v7a', 'all', 'both'. 'both' downloads both arm64-v8a and arm-v7a. default: all
+arch = "all"
+
+# optional args to be passed to cli. can be used to set patch options
+# multiline strings in the config is supported. default: ""
+patcher-args = "-e 'Custom Shorts action buttons' -OiconType='cairo' -e 'Custom branding icon for YouTube' -OappIcon='revancify_blue' -OchangeSplashIcon=true -OrestoreOldSplashAnimation=false -e 'Custom branding name for YouTube' -OappName='YouTube RVX' -e 'Overlay buttons' -OiconType='bold' -OchangeTopButtons=true -e 'Settings for YouTube' -OrvxSettingsLabel='RVX' -e 'Snack bar components' -OapplyCornerRadiusToPlaylistBottomBar=true -OdarkThemeBackgroundColor='@android:color/black' -OlightThemeBackgroundColor='#FFE6E9EF' -e 'Theme' -OdarkThemeBackgroundColor='@android:color/black' -OlightThemeBackgroundColor='#FFE6E9EF' -e 'Visual preferences icons for YouTube' -OsettingsMenuIcon='gear' -OapplyToAll=true"
+
+# whitespace seperated list of non-default patches to include. default: ""
+included-patches = """\
+'Custom header for YouTube' \
+'Force hide player buttons background' \
+'Hide Shorts dimming' \
+'MaterialYou' \
+"""
+
+# whitespace seperated list of default patches to exclude. default: ""
+excluded-patches = """\
+'Disable splash animation' \
+'GmsCore support' \
+"""
+
+# exclude all patches by default. default: false
+# exclusive-patches = false
+
+# used to select apk variant from apkmirror. default: nodpi
+# apkmirror-dpi = "nodpi"
+
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
 uptodown-dlurl = "https://youtube.en.uptodown.com/android"
-archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
+# archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
 
-[Music]
-build-mode = "both"
-arch = "both"
-apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music"
-uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
-archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.youtube.music"
-version = "8.25.54"
-
-[GooglePhotos]
-build-mode = "both"
-arch = "both"
-version = "auto"
-apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/photos/"
-uptodown-dlurl = "https://google-photos.en.uptodown.com/android"
-
-[Spotify]
-uptodown-dlurl = "https://spotify.en.uptodown.com/android"
-archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.spotify.music"
-
-# https://github.com/j-hc/revanced-magisk-module/issues/554
-[Music-Extended]
-enabled = false
-app-name = "Music"
-patches-source = "inotia00/revanced-patches"
-cli-source = "inotia00/revanced-cli"
-rv-brand = "ReVanced Extended"
-build-mode = "both"
-arch = "both"
-apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music"
-
-[YouTube-Extended]
-enabled = false
-app-name = "YouTube"
-patches-source = "inotia00/revanced-patches"
-cli-source = "inotia00/revanced-cli"
-rv-brand = "ReVanced Extended"
-build-mode = "both"
-apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
-
-[Twitch]
-enabled = false
-apkmirror-dlurl = "https://www.apkmirror.com/apk/twitch-interactive-inc/twitch/"
-uptodown-dlurl = "https://twitch.en.uptodown.com/android"
-# archive-dlurl = "https://archive.org/download/jhc-apks/apks/tv.twitch.android.app"
-
-[Twitter]
-enabled = false
-apkmirror-dlurl = "https://www.apkmirror.com/apk/x-corp/twitter"
-build-mode = "apk"
-dpi = "120-640dpi"
-# archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.twitter.android"
-
-[TikTok]
-enabled = false
-# archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.zhiliaoapp.musically"
-included-patches = "'SIM spoof'"
-
-[Messenger]
-enabled = false
-apkmirror-dlurl = "https://www.apkmirror.com/apk/facebook-2/messenger/"
-arch = "arm64-v8a"
-
-[IconPackStudio]
-enabled = false
-apkmirror-dlurl = "https://www.apkmirror.com/apk/smart-launcher-team/icon-pack-studio/"
+# enables ripping x86 and x86_64 libs from apks with j-hc revanced cli. default: true
+# riplib = true
