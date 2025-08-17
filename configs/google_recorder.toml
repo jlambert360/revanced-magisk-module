@@ -1,0 +1,77 @@
+# set this to false if you do not want to receive updates for the module in magisk app
+enable-magisk-update = true
+
+# amount of cores to use for parallel patching, if not set $(nproc) is used
+# parallel-jobs = 1
+
+# module zip compression level
+# compression-level = 9
+
+# remove checks from the revanced integrations
+# remove-rv-integrations-checks = true
+
+# add 'enabled = false' for not patching a specific app or remove it from the config
+# see https://github.com/j-hc/revanced-magisk-module/blob/main/CONFIG.md for more detailed explanations
+
+# you can use rvmm-config-gen to generate a config
+
+[GoogleRecorder]
+# whether to build the app. default: true
+enabled = true
+
+# if set, release name becomes SomeApp instead of Some-App. default is same as table name, which is 'Some-App' here.
+app-name = "Google Recorder ReVanced"
+
+# 'both', 'apk' or 'module'. default: apk
+build-mode = "both"
+
+# magisk module prop name.
+module-prop-name = "Google Recorder ReVanced"
+
+# includes stock apk in the module. default: true
+# include-stock = true
+
+# where to fetch patches bundle from. default: "revanced/revanced-patches"
+# patches-source = "revanced/revanced-patches"
+
+# 'latest', 'dev', or a version number. default: "latest"
+# patches-version = "latest"
+
+# where to fetch cli from. default: "j-hc/revanced-cli"
+# cli-source = "j-hc/revanced-cli"
+
+# 'latest', 'dev', or a version number. default: "latest"
+# cli-version = "latest"
+
+# rebrand from 'ReVanced' to something different. default: "ReVanced"
+# rv-brand = "ReVanced"
+
+# 'auto' option gets the latest possible version supported by all the included patches
+# 'latest' gets the latest stable without checking patches support. 'beta' gets the latest beta/alpha
+# 'auto', 'latest', 'beta' or a version number (e.g. '17.40.41'). default: auto
+# version = "auto"
+
+# 'arm64-v8a', 'arm-v7a', 'all', 'both'. 'both' downloads both arm64-v8a and arm-v7a. default: all
+# arch = "all"
+
+# optional args to be passed to cli. can be used to set patch options
+# multiline strings in the config is supported. default: ""
+# patcher-args = ""
+
+# whitespace seperated list of non-default patches to include. default: ""
+# included-patches = ""
+
+# whitespace seperated list of default patches to exclude. default: ""
+# excluded-patches = ""
+
+# exclude all patches by default. default: false
+# exclusive-patches = false
+
+# used to select apk variant from apkmirror. default: nodpi
+# apkmirror-dpi = "nodpi"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/google-recorder/"
+# uptodown-dlurl = ""
+# archive-dlurl = ""
+
+# enables ripping x86 and x86_64 libs from apks with j-hc revanced cli. default: true
+# riplib = true
